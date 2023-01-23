@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD7BA131297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA130297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift */; };
+		CD7BA131297EB1B00010F2CD /* PluginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA130297EB1B00010F2CD /* PluginStore.swift */; };
 		CD7BA133297EB4F60010F2CD /* UIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA132297EB4F60010F2CD /* UIViewModel.swift */; };
 		CD7BA136297EB6D80010F2CD /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA135297EB6D80010F2CD /* PopoverView.swift */; };
 		CD7BA138297EB9CD0010F2CD /* PopoverProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA137297EB9CD0010F2CD /* PopoverProgressView.swift */; };
+		CD7BA13B297EDEDD0010F2CD /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA13A297EDEDD0010F2CD /* DetailPage.swift */; };
+		CD7BA13D297EDF860010F2CD /* PluginDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA13C297EDF860010F2CD /* PluginDetailView.swift */; };
+		CD7BA140297EE12E0010F2CD /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = CD7BA13F297EE12E0010F2CD /* MarkdownUI */; };
+		CD7BA142297EE7230010F2CD /* RemotePluginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA141297EE7230010F2CD /* RemotePluginView.swift */; };
 		CDBA157F297E5BD1007A782C /* PluginMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA157E297E5BD1007A782C /* PluginMenu.swift */; };
 		CDE30545297DB4C300350CBB /* SwiftSetupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE30544297DB4C300350CBB /* SwiftSetupApp.swift */; };
 		CDE30547297DB4C300350CBB /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE30546297DB4C300350CBB /* HomePage.swift */; };
@@ -25,10 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CD7BA130297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSetupPluginViewModel.swift; sourceTree = "<group>"; };
+		CD7BA130297EB1B00010F2CD /* PluginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginStore.swift; sourceTree = "<group>"; };
 		CD7BA132297EB4F60010F2CD /* UIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewModel.swift; sourceTree = "<group>"; };
 		CD7BA135297EB6D80010F2CD /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		CD7BA137297EB9CD0010F2CD /* PopoverProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverProgressView.swift; sourceTree = "<group>"; };
+		CD7BA13A297EDEDD0010F2CD /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
+		CD7BA13C297EDF860010F2CD /* PluginDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDetailView.swift; sourceTree = "<group>"; };
+		CD7BA141297EE7230010F2CD /* RemotePluginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePluginView.swift; sourceTree = "<group>"; };
 		CDBA157E297E5BD1007A782C /* PluginMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginMenu.swift; sourceTree = "<group>"; };
 		CDE30541297DB4C300350CBB /* SwiftSetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE30544297DB4C300350CBB /* SwiftSetupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSetupApp.swift; sourceTree = "<group>"; };
@@ -49,6 +56,7 @@
 				CDE30558297E3F3D00350CBB /* RealmSwift in Frameworks */,
 				CDE30566297E57FE00350CBB /* SwiftUIKit in Frameworks */,
 				CDE30561297E532200350CBB /* PluginEngine in Frameworks */,
+				CD7BA140297EE12E0010F2CD /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +66,7 @@
 		CD7BA12F297EB19D0010F2CD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CD7BA130297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift */,
+				CD7BA130297EB1B00010F2CD /* PluginStore.swift */,
 				CD7BA132297EB4F60010F2CD /* UIViewModel.swift */,
 			);
 			path = ViewModels;
@@ -69,8 +77,18 @@
 			children = (
 				CD7BA135297EB6D80010F2CD /* PopoverView.swift */,
 				CD7BA137297EB9CD0010F2CD /* PopoverProgressView.swift */,
+				CD7BA141297EE7230010F2CD /* RemotePluginView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CD7BA139297EDECD0010F2CD /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CD7BA13A297EDEDD0010F2CD /* DetailPage.swift */,
+				CD7BA13C297EDF860010F2CD /* PluginDetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		CDE30538297DB4C300350CBB = {
@@ -117,6 +135,7 @@
 		CDE30554297E3E6500350CBB /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				CD7BA139297EDECD0010F2CD /* Detail */,
 				CDE30555297E3E7700350CBB /* Home */,
 			);
 			path = Pages;
@@ -175,6 +194,7 @@
 				CDE30557297E3F3D00350CBB /* RealmSwift */,
 				CDE30560297E532200350CBB /* PluginEngine */,
 				CDE30565297E57FE00350CBB /* SwiftUIKit */,
+				CD7BA13F297EE12E0010F2CD /* MarkdownUI */,
 			);
 			productName = SwiftSetup;
 			productReference = CDE30541297DB4C300350CBB /* SwiftSetup.app */;
@@ -208,6 +228,7 @@
 				CDE30553297DB4D600350CBB /* XCRemoteSwiftPackageReference "PluginEngine" */,
 				CDE30556297E3F3D00350CBB /* XCRemoteSwiftPackageReference "realm-swift" */,
 				CDE30564297E57FE00350CBB /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
+				CD7BA13E297EE12D0010F2CD /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = CDE30542297DB4C300350CBB /* Products */;
 			projectDirPath = "";
@@ -236,15 +257,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD7BA138297EB9CD0010F2CD /* PopoverProgressView.swift in Sources */,
+				CD7BA142297EE7230010F2CD /* RemotePluginView.swift in Sources */,
 				CDE3055B297E40A300350CBB /* PluginManifest.swift in Sources */,
 				CDE30563297E547900350CBB /* PluginList.swift in Sources */,
 				CDE3055E297E52FD00350CBB /* OpenLocalPluginMenu.swift in Sources */,
 				CDE30547297DB4C300350CBB /* HomePage.swift in Sources */,
+				CD7BA13B297EDEDD0010F2CD /* DetailPage.swift in Sources */,
+				CD7BA13D297EDF860010F2CD /* PluginDetailView.swift in Sources */,
 				CDE30545297DB4C300350CBB /* SwiftSetupApp.swift in Sources */,
 				CDBA157F297E5BD1007A782C /* PluginMenu.swift in Sources */,
 				CD7BA136297EB6D80010F2CD /* PopoverView.swift in Sources */,
 				CD7BA133297EB4F60010F2CD /* UIViewModel.swift in Sources */,
-				CD7BA131297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift in Sources */,
+				CD7BA131297EB1B00010F2CD /* PluginStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +466,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CD7BA13E297EE12D0010F2CD /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		CDE30553297DB4D600350CBB /* XCRemoteSwiftPackageReference "PluginEngine" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/swift-setup/PluginEngine";
@@ -469,6 +501,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CD7BA13F297EE12E0010F2CD /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CD7BA13E297EE12D0010F2CD /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
 		CDE30557297E3F3D00350CBB /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CDE30556297E3F3D00350CBB /* XCRemoteSwiftPackageReference "realm-swift" */;

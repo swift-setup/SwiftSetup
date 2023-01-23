@@ -26,6 +26,7 @@ extension OpenFileError: LocalizedError {
 struct OpenPluginCommand: Commands {
     let pluginEngine: PluginEngine
     let sheetContext: SheetContext
+    let store: PluginStore
     
     var body: some Commands {
         CommandGroup(replacing: .newItem) {
@@ -46,12 +47,25 @@ struct OpenPluginCommand: Commands {
         panel.canChooseDirectories = false
         if panel.runModal() == .OK {
             if let url = panel.url {
-                pluginEngine.load(path: url.absoluteString.replacingOccurrences(of: "file:///", with: ""))
+                let path = url.absoluteString.replacingOccurrences(of: "file:///", with: "")
+                let plugin = pluginEngine.load(path: path)
+                guard let plugin = plugin else {
+                    return
+                }
+                let repo = PluginRepo(localPosition: path, readme: "", version: .init(1, 0, 0))
+                try! store.addPlugin(plugin: plugin, repo: repo)
             }
         }
     }
     
     func openRemotePlugin() {
-        sheetContext.present(Text("Hello world"))
+        sheetContext.present(
+            RemotePluginView()
+                .padding()
+                .frame(width: 600)
+                .environmentObject(store)
+                .environmentObject(pluginEngine)
+                .environmentObject(sheetContext)
+        )
     }
 }

@@ -13,7 +13,7 @@ import SwiftUIKit
 struct SwiftSetupApp: App {
     @StateObject var pluginEngine = PluginEngine()
     @StateObject var sheetContext = SheetContext()
-    @StateObject var swiftSetupPluginViewModel = SwiftSetupPluginViewModel()
+    @StateObject var swiftSetupPluginViewModel = PluginStore()
     @StateObject var uiViewModel = UIViewModel()
     
     var body: some Scene {
@@ -24,7 +24,7 @@ struct SwiftSetupApp: App {
                 .environmentObject(swiftSetupPluginViewModel)
                 .environmentObject(uiViewModel)
         }.commands {
-            OpenPluginCommand(pluginEngine: pluginEngine, sheetContext: sheetContext)
+            OpenPluginCommand(pluginEngine: pluginEngine, sheetContext: sheetContext, store: swiftSetupPluginViewModel)
             PluginCommand(pluginEngine: pluginEngine, sheetContext: sheetContext)
         }
     }

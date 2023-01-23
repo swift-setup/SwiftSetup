@@ -12,7 +12,7 @@ import SwiftUIKit
 struct HomePage: View {
     @EnvironmentObject var pluginEngine: PluginEngine
     @EnvironmentObject var sheetContext: SheetContext
-    @EnvironmentObject var swiftSetupPluginViewmodel: SwiftSetupPluginViewModel
+    @EnvironmentObject var swiftSetupPluginViewmodel: PluginStore
     @EnvironmentObject var uiViewModel: UIViewModel
     
     @State var selectedId: UUID? = nil
@@ -22,8 +22,8 @@ struct HomePage: View {
         NavigationSplitView {
             PluginList(selection: $selectedId)
         } detail: {
-            if let _ = pluginEngine.currentPlugin {
-                pluginEngine.render()
+            if let plugin = pluginEngine.currentPlugin {
+                DetailPage(plugin: plugin)
             }
         }
         .toolbar {
@@ -56,7 +56,7 @@ struct HomePage: View {
         uiViewModel.setLoading(title: "Loading plugins", isLoading: true)
         let storedPlugins = swiftSetupPluginViewmodel.setupPlugins()
         storedPlugins.forEach { plugin in
-            pluginEngine.load(path: plugin.localPosition)
+            _ = pluginEngine.load(path: plugin.localPosition, autoConfirm: true)
         }
         uiViewModel.setLoading(isLoading: false)
     }

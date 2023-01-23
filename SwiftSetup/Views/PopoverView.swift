@@ -24,7 +24,9 @@ struct PopoverView<Content: View, Popover: View>: View {
                 showPopup = true
             }
             .onHover { v in
-                showPopup = v
+                if v {
+                    showPopup = true
+                }
             }
     }
 }

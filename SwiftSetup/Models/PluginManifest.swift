@@ -8,6 +8,7 @@
 import Foundation
 import PluginInterface
 import RealmSwift
+import PluginEngine
 
 /**
     A `PluginManifest` represents a plugin's manifest file.
@@ -28,6 +29,8 @@ class PluginManifest: Object, Identifiable, ProjectManifestProtocol {
     @Persisted var readme: String?
 
     @Persisted var localPosition: String
+    
+    @Persisted var _version: String
 
     var keywords: [String] {
         get {
@@ -39,8 +42,14 @@ class PluginManifest: Object, Identifiable, ProjectManifestProtocol {
             _keywords.append(objectsIn: newValue)
         }
     }
+    
+    var version: Version {
+        get {
+            return Version(stringLiteral: _version)
+        }
+    }
 
-    convenience init(bundleIdentifier: String, displayName: String, author: String, shortDescription: String, repository: String, keywords: [String], readme: String?, localPosition: String) {
+    convenience init(bundleIdentifier: String, displayName: String, author: String, shortDescription: String, repository: String, keywords: [String], readme: String?, localPosition: String, version: Version) {
         self.init()
         self.bundleIdentifier = bundleIdentifier
         self.displayName = displayName
@@ -50,5 +59,6 @@ class PluginManifest: Object, Identifiable, ProjectManifestProtocol {
         self.keywords = keywords
         self.readme = readme
         self.localPosition = localPosition
+        self._version = "\(version.major).\(version.minor).\(version.patch)"
     }
 }

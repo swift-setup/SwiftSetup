@@ -1,0 +1,59 @@
+{
+  "pins" : [
+    {
+      "identity" : "pluginengine",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swift-setup/PluginEngine",
+      "state" : {
+        "revision" : "e5c4714f191033522d569887a6321e1dc819cde8",
+        "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "plugininterface",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swift-setup/PluginInterface",
+      "state" : {
+        "revision" : "454ca739f8c7c833d79dd6ecd784c65b25b68ea0",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "realm-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-core.git",
+      "state" : {
+        "revision" : "b77443ca7fa25407869ca537bf3ae912b1427bff",
+        "version" : "12.13.0"
+      }
+    },
+    {
+      "identity" : "realm-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-swift.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "5d6abe657bfe628e426442aa8143c1ec392706a2"
+      }
+    },
+    {
+      "identity" : "swiftuikit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielsaidi/SwiftUIKit",
+      "state" : {
+        "branch" : "master",
+        "revision" : "0f1b501db8af33a16ff161e8595b7f900785a988"
+      }
+    },
+    {
+      "identity" : "ziparchive",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZipArchive/ZipArchive",
+      "state" : {
+        "revision" : "3016df0730fb7daa85d73e29ec9d02851db831ae",
+        "version" : "2.5.3"
+      }
+    }
+  ],
+  "version" : 2
+}

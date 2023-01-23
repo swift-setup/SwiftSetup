@@ -7,19 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD7BA131297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA130297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift */; };
+		CD7BA133297EB4F60010F2CD /* UIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA132297EB4F60010F2CD /* UIViewModel.swift */; };
+		CD7BA136297EB6D80010F2CD /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA135297EB6D80010F2CD /* PopoverView.swift */; };
+		CD7BA138297EB9CD0010F2CD /* PopoverProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA137297EB9CD0010F2CD /* PopoverProgressView.swift */; };
+		CDBA157F297E5BD1007A782C /* PluginMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA157E297E5BD1007A782C /* PluginMenu.swift */; };
 		CDE30545297DB4C300350CBB /* SwiftSetupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE30544297DB4C300350CBB /* SwiftSetupApp.swift */; };
-		CDE30547297DB4C300350CBB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE30546297DB4C300350CBB /* ContentView.swift */; };
+		CDE30547297DB4C300350CBB /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE30546297DB4C300350CBB /* HomePage.swift */; };
 		CDE30549297DB4C400350CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE30548297DB4C400350CBB /* Assets.xcassets */; };
 		CDE3054C297DB4C400350CBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE3054B297DB4C400350CBB /* Preview Assets.xcassets */; };
+		CDE30558297E3F3D00350CBB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CDE30557297E3F3D00350CBB /* RealmSwift */; };
+		CDE3055B297E40A300350CBB /* PluginManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE3055A297E40A300350CBB /* PluginManifest.swift */; };
+		CDE3055E297E52FD00350CBB /* OpenLocalPluginMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE3055D297E52FD00350CBB /* OpenLocalPluginMenu.swift */; };
+		CDE30561297E532200350CBB /* PluginEngine in Frameworks */ = {isa = PBXBuildFile; productRef = CDE30560297E532200350CBB /* PluginEngine */; };
+		CDE30563297E547900350CBB /* PluginList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE30562297E547900350CBB /* PluginList.swift */; };
+		CDE30566297E57FE00350CBB /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = CDE30565297E57FE00350CBB /* SwiftUIKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD7BA130297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSetupPluginViewModel.swift; sourceTree = "<group>"; };
+		CD7BA132297EB4F60010F2CD /* UIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewModel.swift; sourceTree = "<group>"; };
+		CD7BA135297EB6D80010F2CD /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		CD7BA137297EB9CD0010F2CD /* PopoverProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverProgressView.swift; sourceTree = "<group>"; };
+		CDBA157E297E5BD1007A782C /* PluginMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginMenu.swift; sourceTree = "<group>"; };
 		CDE30541297DB4C300350CBB /* SwiftSetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE30544297DB4C300350CBB /* SwiftSetupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSetupApp.swift; sourceTree = "<group>"; };
-		CDE30546297DB4C300350CBB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CDE30546297DB4C300350CBB /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		CDE30548297DB4C400350CBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDE3054B297DB4C400350CBB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CDE3054D297DB4C400350CBB /* SwiftSetup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftSetup.entitlements; sourceTree = "<group>"; };
+		CDE3055A297E40A300350CBB /* PluginManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginManifest.swift; sourceTree = "<group>"; };
+		CDE3055D297E52FD00350CBB /* OpenLocalPluginMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLocalPluginMenu.swift; sourceTree = "<group>"; };
+		CDE30562297E547900350CBB /* PluginList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +46,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE30558297E3F3D00350CBB /* RealmSwift in Frameworks */,
+				CDE30566297E57FE00350CBB /* SwiftUIKit in Frameworks */,
+				CDE30561297E532200350CBB /* PluginEngine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD7BA12F297EB19D0010F2CD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CD7BA130297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift */,
+				CD7BA132297EB4F60010F2CD /* UIViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CD7BA134297EB6B60010F2CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD7BA135297EB6D80010F2CD /* PopoverView.swift */,
+				CD7BA137297EB9CD0010F2CD /* PopoverProgressView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CDE30538297DB4C300350CBB = {
 			isa = PBXGroup;
 			children = (
 				CDE30543297DB4C300350CBB /* SwiftSetup */,
 				CDE30542297DB4C300350CBB /* Products */,
+				CDE3055F297E532200350CBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,8 +93,12 @@
 		CDE30543297DB4C300350CBB /* SwiftSetup */ = {
 			isa = PBXGroup;
 			children = (
+				CD7BA134297EB6B60010F2CD /* Views */,
+				CD7BA12F297EB19D0010F2CD /* ViewModels */,
+				CDE3055C297E52ED00350CBB /* Menus */,
+				CDE30559297E409000350CBB /* Models */,
+				CDE30554297E3E6500350CBB /* Pages */,
 				CDE30544297DB4C300350CBB /* SwiftSetupApp.swift */,
-				CDE30546297DB4C300350CBB /* ContentView.swift */,
 				CDE30548297DB4C400350CBB /* Assets.xcassets */,
 				CDE3054D297DB4C400350CBB /* SwiftSetup.entitlements */,
 				CDE3054A297DB4C400350CBB /* Preview Content */,
@@ -67,6 +112,47 @@
 				CDE3054B297DB4C400350CBB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CDE30554297E3E6500350CBB /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				CDE30555297E3E7700350CBB /* Home */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		CDE30555297E3E7700350CBB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CDE30546297DB4C300350CBB /* HomePage.swift */,
+				CDE30562297E547900350CBB /* PluginList.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CDE30559297E409000350CBB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDE3055A297E40A300350CBB /* PluginManifest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CDE3055C297E52ED00350CBB /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				CDE3055D297E52FD00350CBB /* OpenLocalPluginMenu.swift */,
+				CDBA157E297E5BD1007A782C /* PluginMenu.swift */,
+			);
+			path = Menus;
+			sourceTree = "<group>";
+		};
+		CDE3055F297E532200350CBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +171,11 @@
 			dependencies = (
 			);
 			name = SwiftSetup;
+			packageProductDependencies = (
+				CDE30557297E3F3D00350CBB /* RealmSwift */,
+				CDE30560297E532200350CBB /* PluginEngine */,
+				CDE30565297E57FE00350CBB /* SwiftUIKit */,
+			);
 			productName = SwiftSetup;
 			productReference = CDE30541297DB4C300350CBB /* SwiftSetup.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +204,11 @@
 				Base,
 			);
 			mainGroup = CDE30538297DB4C300350CBB;
+			packageReferences = (
+				CDE30553297DB4D600350CBB /* XCRemoteSwiftPackageReference "PluginEngine" */,
+				CDE30556297E3F3D00350CBB /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CDE30564297E57FE00350CBB /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
+			);
 			productRefGroup = CDE30542297DB4C300350CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,8 +235,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDE30547297DB4C300350CBB /* ContentView.swift in Sources */,
+				CD7BA138297EB9CD0010F2CD /* PopoverProgressView.swift in Sources */,
+				CDE3055B297E40A300350CBB /* PluginManifest.swift in Sources */,
+				CDE30563297E547900350CBB /* PluginList.swift in Sources */,
+				CDE3055E297E52FD00350CBB /* OpenLocalPluginMenu.swift in Sources */,
+				CDE30547297DB4C300350CBB /* HomePage.swift in Sources */,
 				CDE30545297DB4C300350CBB /* SwiftSetupApp.swift in Sources */,
+				CDBA157F297E5BD1007A782C /* PluginMenu.swift in Sources */,
+				CD7BA136297EB6D80010F2CD /* PopoverView.swift in Sources */,
+				CD7BA133297EB4F60010F2CD /* UIViewModel.swift in Sources */,
+				CD7BA131297EB1B00010F2CD /* SwiftSetupPluginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +440,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CDE30553297DB4D600350CBB /* XCRemoteSwiftPackageReference "PluginEngine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swift-setup/PluginEngine";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		CDE30556297E3F3D00350CBB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CDE30564297E57FE00350CBB /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/SwiftUIKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CDE30557297E3F3D00350CBB /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDE30556297E3F3D00350CBB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		CDE30560297E532200350CBB /* PluginEngine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDE30553297DB4D600350CBB /* XCRemoteSwiftPackageReference "PluginEngine" */;
+			productName = PluginEngine;
+		};
+		CDE30565297E57FE00350CBB /* SwiftUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDE30564297E57FE00350CBB /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
+			productName = SwiftUIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CDE30539297DB4C300350CBB /* Project object */;
 }

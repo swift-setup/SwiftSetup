@@ -1,0 +1,13 @@
+*.app
+*.cer
+*.certSigningRequest
+*.p12
+*.zip
+*.pkg
+fastlane/report.xml
+*.b64
+*.provisionprofile
+*.env
+*.mobileprovision
+build
+release.xcarchive

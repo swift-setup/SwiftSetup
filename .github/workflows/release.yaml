@@ -1,0 +1,32 @@
+name: "Release app"
+on:
+  release:
+    types:
+      - released
+
+jobs:
+  release:
+    name: Generate macOS app
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Write cert
+        uses: timheuer/base64-to-file@v1.2
+        with:
+          fileName: ${{ secrets.CERT_NAME }}
+          fileDir: ./app
+          encodedString: ${{ secrets.APPLE_CER }}
+      - name: Write key
+        uses: timheuer/base64-to-file@v1.2
+        with:
+          fileName: ${{ secrets.KEY_NAME }}
+          fileDir: ./app
+          encodedString: ${{ secrets.APPLE_P12 }}
+      - name: Build app
+        run: fastlane release
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY: ${{ secrets.ASC_KEY }}
+          KEYCHAIN_PATH: ~/Library/Keychains/signing_temp.keychain-db

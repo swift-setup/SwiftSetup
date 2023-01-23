@@ -14,37 +14,41 @@ struct PluginDetailView: View {
     let pluginManifest: PluginManifest
     
     var body: some View {
-        Form {
-            Section("Basic info") {
-                Row(title: "Display Name", subtitle: pluginManifest.displayName)
-                Row(title: "Bundle Identifier", subtitle: pluginManifest.bundleIdentifier)
-                //TODO: add version
-                Row(title: "Version", subtitle: "")
-                Row(title: "Author", subtitle: pluginManifest.author)
-                Row(title: "Keywords", subtitle: "\(pluginManifest.keywords)")
-            }
-            
-            Divider()
-            
-            Section("Short Description") {
-                Text(pluginManifest.shortDescription)
-            }
-            
-            Divider()
-            if let markdown = pluginManifest.readme {
-                Section("Long Description") {
-                    Markdown(markdown)
+        ScrollView {
+            VStack(alignment: .leading) {
+                Section("Basic info") {
+                    Row(title: "Display Name", subtitle: pluginManifest.displayName)
+                    Row(title: "Bundle Identifier", subtitle: pluginManifest.bundleIdentifier)
+                    //TODO: add version
+                    Row(title: "Version", subtitle: "")
+                    Row(title: "Author", subtitle: pluginManifest.author)
+                    Row(title: "Keywords", subtitle: "\(pluginManifest.keywords)")
                 }
+                
                 Divider()
-            }
-            
-            if let url = URL(string: pluginManifest.repository) {
-                HStack {
-                    Button("Open the repository") {
-                        open(url)
+                
+                Section("Short Description") {
+                    Text(pluginManifest.shortDescription)
+                }
+                
+                Divider()
+                if let readme = pluginManifest.readme {
+                    Section("Long Description") {
+                        Markdown(readme)
+                    }
+                    Divider()
+                }
+                
+                if let url = URL(string: pluginManifest.repository) {
+                    HStack {
+                        Button("Open the repository") {
+                            open(url)
+                        }
                     }
                 }
+                Spacer()
             }
+            .frame(minHeight: 300, maxHeight: 600)
         }
     }
 }

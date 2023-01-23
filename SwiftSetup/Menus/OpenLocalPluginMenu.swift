@@ -27,6 +27,7 @@ struct OpenPluginCommand: Commands {
     let pluginEngine: PluginEngine
     let sheetContext: SheetContext
     let store: PluginStore
+    let uiModel: UIViewModel
     
     var body: some Commands {
         CommandGroup(replacing: .newItem) {
@@ -61,11 +62,10 @@ struct OpenPluginCommand: Commands {
     func openRemotePlugin() {
         sheetContext.present(
             RemotePluginView()
-                .padding()
-                .frame(width: 600)
                 .environmentObject(store)
                 .environmentObject(pluginEngine)
                 .environmentObject(sheetContext)
+                .environmentObject(uiModel)
         )
     }
 }

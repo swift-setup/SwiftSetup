@@ -24,18 +24,10 @@ struct RemotePluginView: View {
     @State var repository: String = ""
     @State var version: String = ""
     
-    @State var showAlert = false
-    @State var error: String? {
-        willSet {
-            if newValue != nil {
-                showAlert = true
-            }
-        }
-    }
-    
     @EnvironmentObject var pluginEngine: PluginEngine
     @EnvironmentObject var store: PluginStore
     @EnvironmentObject var sheetContext: SheetContext
+    @EnvironmentObject var uiModel: UIViewModel
     
     var body: some View {
         Form {
@@ -52,7 +44,7 @@ struct RemotePluginView: View {
                         do {
                             try await submit()
                         } catch {
-                            self.error = error.localizedDescription
+                            uiModel.alert(title: "Cannot add remote plugin", subtitle: error.localizedDescription, alertStyle: .critical)
                         }
                     }
                 } label: {
@@ -65,12 +57,8 @@ struct RemotePluginView: View {
 
             }
         }
-        .alert(error ?? "", isPresented: $showAlert) {
-            Button("OK") {
-                showAlert = false
-                error = nil
-            }
-        }
+        .padding()
+        .frame(width: 600)
     }
     
     func submit() async throws {

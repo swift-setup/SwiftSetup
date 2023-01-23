@@ -12,11 +12,14 @@ import PluginEngine
 
 enum PluginStoreError: LocalizedError {
     case duplicatePlugin(String)
+    case notFound(String)
     
     var errorDescription: String? {
         switch self {
             case .duplicatePlugin(let bundleId):
                 return "Duplicated plugin found: \(bundleId)"
+            case .notFound(let bundleId):
+                return "Unable to find plugin: \(bundleId)"
         }
     }
 }
@@ -85,4 +88,14 @@ class PluginStore: ObservableObject {
         }
     }
     
+    
+    func deletePlugin(by bundleId: String) throws {
+        guard let prevPlugin = realm.objects(PluginManifest.self).filter({ $0.bundleIdentifier == bundleId }).first else {
+            throw PluginStoreError.notFound(bundleId)
+        }
+        
+        try realm.write {
+            realm.delete(prevPlugin)
+        }
+    }
 }

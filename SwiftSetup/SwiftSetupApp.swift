@@ -24,7 +24,7 @@ struct SwiftSetupApp: App {
                 .environmentObject(swiftSetupPluginViewModel)
                 .environmentObject(uiViewModel)
         }.commands {
-            OpenPluginCommand(pluginEngine: pluginEngine, sheetContext: sheetContext, store: swiftSetupPluginViewModel)
+            OpenPluginCommand(pluginEngine: pluginEngine, sheetContext: sheetContext, store: swiftSetupPluginViewModel, uiModel: uiViewModel)
             PluginCommand(pluginEngine: pluginEngine, sheetContext: sheetContext)
         }
     }

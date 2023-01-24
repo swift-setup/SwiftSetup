@@ -18,44 +18,11 @@ jobs:
       - name: Build app
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-        run: xcodebuild -scheme SwiftSetup -derivedDataPath "$RUNNER_TEMP/DerivedData" -archivePath "$RUNNER_TEMP/SwiftSetup.xcarchive" -skipPackagePluginValidation DEVELOPMENT_TEAM=$APPLE_TEAM_ID archive
-      - name: Sign CodeEdit
-        env:
-          CODESIGN_SIGN: ${{ secrets.CODESIGN_SIGN }}
-        run: |
-          REV=$(git rev-parse --short HEAD)
-          echo "REV=$REV" >> $GITHUB_ENV
-          codesign --sign "$CODESIGN_SIGN" -vvv --verbose --strict --options=runtime --prefix sirily11.SwiftSetup. --force --deep --timestamp "$RUNNER_TEMP/CodeEdit.xcarchive/Products/Applications/SwiftSetup.app"
-      - name: Create DMG & Notarize
-        env:
-          CODESIGN_SIGN: ${{ secrets.CODESIGN_SIGN }}
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_ID_PWD: ${{ secrets.APPLE_ID_PWD }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-          RUNNER_PW: ${{ secrets.KEYCHAIN_PASSWORD }}
-        run: |
-          REV=$(git rev-parse --short HEAD)
-          echo "REV=$REV" >> $GITHUB_ENV
-          security unlock-keychain -p "$RUNNER_PW"
-          xcrun notarytool store-credentials SwiftSetup --apple-id "$APPLE_ID" --team-id "$APPLE_TEAM_ID" --password "$APPLE_ID_PWD"
-          create-dmg \
-            --volname "SwiftSetup" \
-            --window-pos 200 120 \
-            --window-size 800 400 \
-            --icon-size 100 \
-            --icon "SwiftSetup.app" 200 190 \
-            --hide-extension "SwiftSetup.app" \
-            --app-drop-link 600 185 \
-            --codesign "$CODESIGN_SIGN" \
-            --notarize "SwiftSetup" \
-            "$RUNNER_TEMP/SwiftSetup-$REV.dmg" \
-            "$RUNNER_TEMP/SwiftSetup.xcarchive/Products/Applications/"
-          security lock-keychain
+        run: fastlane build
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
         run: |
           security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
-          rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
   create-release:
     if: ${{ github.event.pusher.name != 'github action' }}
     runs-on: ubuntu-latest

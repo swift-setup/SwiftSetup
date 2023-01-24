@@ -15,14 +15,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## Mac
 
-### mac sign
-
-```sh
-[bundle exec] fastlane mac sign
-```
-
-Check certs and profiles
-
 ### mac build
 
 ```sh

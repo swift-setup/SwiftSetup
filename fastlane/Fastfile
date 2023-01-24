@@ -2,24 +2,12 @@ default_platform(:mac)
 
 profile_name =  "mac-application"
 app_id = "com.sirily11.SwiftSetup"
+team_id = ENV["APPLE_TEAM_ID"]
+username = ENV["APPLE_ID"]
+password = ENV["APPLE_ID_PWD"]
+
 
 platform :mac do
-  desc "Check certs and profiles"
-  lane :sign do |options|
-   api_key = lane_context[SharedValues::APP_STORE_CONNECT_API_KEY]
-   cert(
-       keychain_path: ENV["KEYCHAIN_PATH"],
-       platform: "macos",
-     )
-   
-   # main app profile
-   sigh(
-     app_identifier: app_id,
-     provisioning_name: profile_name,
-     force: true,
-     platform: "macos",
-   )
-  end
   desc "Build app"
   lane :build do
     build_mac_app(
@@ -28,6 +16,7 @@ platform :mac do
       output_name: "SwiftSetup",
       export_xcargs: "-allowProvisioningUpdates -skipPackagePluginValidation",
       export_method: "mac-application",
+      export_team_id: team_id,
     )
   end
 end

@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - uses: sirily11/ios-bump-version@master
+        name: Bump version
+        with:
+          version: ${{ github.ref_name }}
+          build-number: ${{github.run_attempt }}
       - name: Install the Apple certificate and provisioning profile
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}

@@ -18,7 +18,10 @@ jobs:
       - name: Build app
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          CODESIGN_SIGN: ${{ secrets.CODESIGN_SIGN }}
         run: fastlane build
+      - name: Create DMG
+        run: create-dmg SwiftSetup.app
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
         run: |

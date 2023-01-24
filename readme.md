@@ -1,4 +1,4 @@
-![logo](./images/logo.png)
+![logo](./images/cover.png)
 
 # Swift Setup
 

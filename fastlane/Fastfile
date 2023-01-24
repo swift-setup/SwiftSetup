@@ -1,0 +1,22 @@
+default_platform(:mac)
+
+profile_name =  "mac-application"
+app_id = "com.sirily11.SwiftSetup"
+team_id = ENV["APPLE_TEAM_ID"]
+username = ENV["APPLE_ID"]
+password = ENV["APPLE_ID_PWD"]
+
+
+platform :mac do
+  desc "Build app"
+  lane :build do
+    build_mac_app(
+      scheme: "SwiftSetup", 
+      clean: true,
+      output_name: "SwiftSetup",
+      export_xcargs: "-allowProvisioningUpdates -skipPackagePluginValidation",
+      export_method: "mac-application",
+      export_team_id: team_id,
+    )
+  end
+end

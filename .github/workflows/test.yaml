@@ -4,7 +4,7 @@ on: push
 jobs:
   build:
     name: Generate macOS app
-    runs-on: macos-12
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -51,12 +51,11 @@ jobs:
             "$RUNNER_TEMP/SwiftSetup-$REV.dmg" \
             "$RUNNER_TEMP/SwiftSetup.xcarchive/Products/Applications/"
           security lock-keychain
-
-      # - name: Clean up keychain and provisioning profile
-      #   if: ${{ always() }}
-      #   run: |
-      #     security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
-      #     rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
+      - name: Clean up keychain and provisioning profile
+        if: ${{ always() }}
+        run: |
+          security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
+          rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
   create-release:
     if: ${{ github.event.pusher.name != 'github action' }}
     runs-on: ubuntu-latest

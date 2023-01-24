@@ -11,3 +11,4 @@ fastlane/report.xml
 *.mobileprovision
 build
 release.xcarchive
+*.dmg

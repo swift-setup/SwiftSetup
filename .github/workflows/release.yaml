@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - run: npm install --global create-dmg
       - uses: sirily11/ios-bump-version@master
         name: Bump version
         with:
@@ -38,7 +39,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: SwiftSetup.zip
+          files: SwiftSetup.dmg
       - name: Clean up keychain and provisioning profile
         if: ${{ always() }}
         run: |

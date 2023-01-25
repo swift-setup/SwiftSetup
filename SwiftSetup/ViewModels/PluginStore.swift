@@ -48,7 +48,7 @@ class PluginStore: ObservableObject {
      Initializes the Realm object
      */
     init() {
-        let config = Realm.Configuration(schemaVersion: 1)
+        let config = Realm.Configuration(schemaVersion: 2)
         realm = try! Realm(configuration: config)
     }
 

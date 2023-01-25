@@ -20,7 +20,7 @@ struct PluginDetailView: View {
                     Row(title: "Display Name", subtitle: pluginManifest.displayName)
                     Row(title: "Bundle Identifier", subtitle: pluginManifest.bundleIdentifier)
                     //TODO: add version
-                    Row(title: "Version", subtitle: "")
+                    Row(title: "Version", subtitle: pluginManifest.version.toString())
                     Row(title: "Author", subtitle: pluginManifest.author)
                     Row(title: "Keywords", subtitle: "\(pluginManifest.keywords)")
                 }

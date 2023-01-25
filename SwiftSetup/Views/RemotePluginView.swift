@@ -8,6 +8,7 @@
 import SwiftUI
 import PluginEngine
 import SwiftUIKit
+import PluginInterface
 
 enum RemoteError: LocalizedError {
     case invalidRepository
@@ -23,6 +24,8 @@ enum RemoteError: LocalizedError {
 struct RemotePluginView: View {
     @State var repository: String = ""
     @State var version: String = ""
+    @State var token: String = ""
+    @State var versions: [Version] = []
     
     @EnvironmentObject var pluginEngine: PluginEngine
     @EnvironmentObject var store: PluginStore
@@ -32,8 +35,12 @@ struct RemotePluginView: View {
     
     var body: some View {
         Form {
-            TextField("Repository", text: $repository)
-            TextField("Version", text: $version)
+            TextField("Repository", text: $repository).onSubmit {
+                Task {
+                    await fetchVersions()
+                }
+            }
+            VersionPicker(versions: versions, selectedVersion: $version)
             HStack {
                 Spacer()
                 Button("Close") {
@@ -62,13 +69,24 @@ struct RemotePluginView: View {
         .frame(width: 600)
     }
     
+    func fetchVersions() async {
+        do {
+            guard let repoURL = URL(string: repository) else {
+                return
+            }
+            let versions = try await pluginEngine.remotePluginLoader.versions(from: repoURL)
+            self.versions = versions
+        } catch {
+            
+        }
+    }
+    
     func submit() async throws {
         guard let repoURL = URL(string: repository) else {
             throw RemoteError.invalidRepository
         }
         
-        let version = Version(stringLiteral: self.version)
-        let (repo, plugin) = try await pluginEngine.load(url: repoURL.absoluteString, version: version)
+        let (repo, plugin) = try await pluginEngine.load(url: repoURL.absoluteString, version: Version(stringLiteral: version))
         guard let plugin = plugin else {
             return
         }
@@ -81,5 +99,6 @@ struct RemotePluginView: View {
 struct RemotePluginView_Previews: PreviewProvider {
     static var previews: some View {
         RemotePluginView()
+            .environmentObject(PluginEngine())
     }
 }

@@ -15,6 +15,8 @@ struct SwiftSetupApp: App {
     @StateObject var sheetContext = SheetContext()
     @StateObject var swiftSetupPluginViewModel = PluginStore()
     @StateObject var uiViewModel = UIViewModel()
+    @StateObject var fileUtils = FileUtils()
+    @StateObject var nsPanel = NSPanelUtils()
     
     var body: some Scene {
         WindowGroup {
@@ -23,6 +25,8 @@ struct SwiftSetupApp: App {
                 .environmentObject(sheetContext)
                 .environmentObject(swiftSetupPluginViewModel)
                 .environmentObject(uiViewModel)
+                .environmentObject(fileUtils)
+                .environmentObject(nsPanel)
         }.commands {
             OpenPluginCommand(pluginEngine: pluginEngine, sheetContext: sheetContext, store: swiftSetupPluginViewModel, uiModel: uiViewModel)
             PluginCommand(pluginEngine: pluginEngine, sheetContext: sheetContext)

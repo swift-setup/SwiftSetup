@@ -28,6 +28,7 @@ struct RemotePluginView: View {
     @EnvironmentObject var store: PluginStore
     @EnvironmentObject var sheetContext: SheetContext
     @EnvironmentObject var uiModel: UIViewModel
+    @EnvironmentObject var nsPanel: NSPanelUtils
     
     var body: some View {
         Form {
@@ -44,7 +45,7 @@ struct RemotePluginView: View {
                         do {
                             try await submit()
                         } catch {
-                            uiModel.alert(title: "Cannot add remote plugin", subtitle: error.localizedDescription, alertStyle: .critical)
+                            nsPanel.alert(title: "Cannot add remote plugin", subtitle: error.localizedDescription, alertStyle: .critical)
                         }
                     }
                 } label: {

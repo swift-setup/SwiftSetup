@@ -14,6 +14,8 @@ struct HomePage: View {
     @EnvironmentObject var sheetContext: SheetContext
     @EnvironmentObject var swiftSetupPluginViewmodel: PluginStore
     @EnvironmentObject var uiViewModel: UIViewModel
+    @EnvironmentObject var fileUtils: FileUtils
+    @EnvironmentObject var nsPanel: NSPanelUtils
     
     @State var selectedId: UUID? = nil
     
@@ -35,6 +37,7 @@ struct HomePage: View {
         }
         .task {
             load()
+            
         }
         .sheet(sheetContext)
         .onChange(of: pluginEngine.isLoadingRemote, perform: { loading in
@@ -47,13 +50,14 @@ struct HomePage: View {
             do {
                 try pluginEngine.use(id: id)
             } catch {
-                uiViewModel.alert(title: "Cannot load plugin", subtitle: error.localizedDescription)
+                nsPanel.alert(title: "Cannot load plugin", subtitle: error.localizedDescription)
             }
         }
     }
     
     func load() {
         uiViewModel.setLoading(title: "Loading plugins", isLoading: true)
+        pluginEngine.setup(fileUtils: fileUtils, nsPanelUtils: nsPanel)
         let storedPlugins = swiftSetupPluginViewmodel.setupPlugins()
         storedPlugins.forEach { plugin in
             _ = pluginEngine.load(path: plugin.localPosition, autoConfirm: true)

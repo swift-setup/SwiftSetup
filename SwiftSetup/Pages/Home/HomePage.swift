@@ -16,6 +16,7 @@ struct HomePage: View {
     @EnvironmentObject var uiViewModel: UIViewModel
     @EnvironmentObject var fileUtils: FileUtils
     @EnvironmentObject var nsPanel: NSPanelUtils
+    @EnvironmentObject var store: UserDefaultStore
     
     @State var selectedId: UUID? = nil
     
@@ -57,7 +58,7 @@ struct HomePage: View {
     
     func load() {
         uiViewModel.setLoading(title: "Loading plugins", isLoading: true)
-        pluginEngine.setup(fileUtils: fileUtils, nsPanelUtils: nsPanel)
+        pluginEngine.setup(fileUtils: fileUtils, nsPanelUtils: nsPanel, storeUtils: store)
         let storedPlugins = swiftSetupPluginViewmodel.setupPlugins()
         storedPlugins.forEach { plugin in
             _ = pluginEngine.load(path: plugin.localPosition, autoConfirm: true)

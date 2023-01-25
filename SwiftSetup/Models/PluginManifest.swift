@@ -31,6 +31,8 @@ class PluginManifest: Object, Identifiable, ProjectManifestProtocol {
     @Persisted var localPosition: String
     
     @Persisted var _version: String
+    
+    @Persisted var systemImageName: String?
 
     var keywords: [String] {
         get {
@@ -49,7 +51,7 @@ class PluginManifest: Object, Identifiable, ProjectManifestProtocol {
         }
     }
 
-    convenience init(bundleIdentifier: String, displayName: String, author: String, shortDescription: String, repository: String, keywords: [String], readme: String?, localPosition: String, version: Version) {
+    convenience init(bundleIdentifier: String, displayName: String, author: String, shortDescription: String, repository: String, keywords: [String], readme: String?, localPosition: String, version: Version, systemImageName: String? = nil) {
         self.init()
         self.bundleIdentifier = bundleIdentifier
         self.displayName = displayName
@@ -60,5 +62,6 @@ class PluginManifest: Object, Identifiable, ProjectManifestProtocol {
         self.readme = readme
         self.localPosition = localPosition
         self._version = "\(version.major).\(version.minor).\(version.patch)"
+        self.systemImageName = systemImageName
     }
 }

@@ -16,6 +16,7 @@ struct PluginList: View {
     @EnvironmentObject var store: PluginStore
     @EnvironmentObject var uiModel: UIViewModel
     @EnvironmentObject var sheeContext: SheetContext
+    @EnvironmentObject var nsPanel: NSPanelUtils
     
     @ObservedResults(PluginManifest.self) var projects
     
@@ -43,7 +44,7 @@ struct PluginList: View {
     
     func delete(plugin: any PluginInterfaceProtocol) {
         do {
-            let confirmed = uiModel.confirm(title: "Delete plugin \(plugin.manifest.bundleIdentifier)", subtitle: "This operation cannot be revert", confirmButtonText: "OK", cancelButtonText: "Cancel", alertStyle: .informational)
+            let confirmed = nsPanel.confirm(title: "Delete plugin \(plugin.manifest.bundleIdentifier)", subtitle: "This operation cannot be revert", confirmButtonText: "OK", cancelButtonText: "Cancel", alertStyle: .informational)
             
             if !confirmed {
                 return
@@ -52,7 +53,7 @@ struct PluginList: View {
             try store.deletePlugin(by: plugin.manifest.bundleIdentifier)
             pluginEngine.removePlugin(plugin: plugin)
         } catch {
-            uiModel.alert(title: "Cannot delete plugin", subtitle: error.localizedDescription)
+            nsPanel.alert(title: "Cannot delete plugin", subtitle: error.localizedDescription)
         }
     }
 }

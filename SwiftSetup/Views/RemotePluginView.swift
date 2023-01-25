@@ -22,16 +22,32 @@ enum RemoteError: LocalizedError {
 }
 
 struct RemotePluginView: View {
+    let isEditing: Bool
+    let bundleId: String?
+    
     @State var repository: String = ""
     @State var version: String = ""
     @State var token: String = ""
     @State var versions: [Version] = []
+
     
     @EnvironmentObject var pluginEngine: PluginEngine
     @EnvironmentObject var store: PluginStore
     @EnvironmentObject var sheetContext: SheetContext
     @EnvironmentObject var uiModel: UIViewModel
     @EnvironmentObject var nsPanel: NSPanelUtils
+    
+    init() {
+        isEditing = false
+        bundleId = nil
+    }
+    
+    init(bundleId: String, version: String, repository: String) {
+        self._version = .init(initialValue: version)
+        self._repository = .init(initialValue: repository)
+        self.isEditing = true
+        self.bundleId = bundleId
+    }
     
     var body: some View {
         Form {
@@ -40,6 +56,7 @@ struct RemotePluginView: View {
                     await fetchVersions()
                 }
             }
+            .disabled(isEditing)
             VersionPicker(versions: versions, selectedVersion: $version)
             HStack {
                 Spacer()
@@ -65,9 +82,15 @@ struct RemotePluginView: View {
 
             }
         }
+        .task {
+            if isEditing {
+                await fetchVersions()
+            }
+        }
         .padding()
         .frame(width: 600)
     }
+    
     
     func fetchVersions() async {
         do {
@@ -86,12 +109,23 @@ struct RemotePluginView: View {
             throw RemoteError.invalidRepository
         }
         
-        let (repo, plugin) = try await pluginEngine.load(url: repoURL.absoluteString, version: Version(stringLiteral: version))
-        guard let plugin = plugin else {
-            return
+        let version = Version(stringLiteral: version)
+        
+        if isEditing {
+            let (repo, plugin) = try await pluginEngine.update(bundleId: bundleId!, url: repoURL.absoluteString, version: version)
+            guard let plugin = plugin else {
+                return
+            }
+            try store.updatePlugin(plugin: plugin, repo: repo)
+            pluginEngine.addPlugin(plugin: plugin)
+        } else {
+            let (repo, plugin) = try await pluginEngine.load(url: repoURL.absoluteString, version: version)
+            guard let plugin = plugin else {
+                return
+            }
+            try store.addPlugin(plugin: plugin, repo: repo)
+            pluginEngine.addPlugin(plugin: plugin)
         }
-        try store.addPlugin(plugin: plugin, repo: repo)
-        pluginEngine.addPlugin(plugin: plugin)
         sheetContext.dismiss()
     }
 }

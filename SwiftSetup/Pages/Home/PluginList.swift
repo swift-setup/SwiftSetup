@@ -26,6 +26,11 @@ struct PluginList: View {
         List(pluginEngine.plugins, id: \.id, selection: $selection) { plugin in
             NavigationLink(plugin.manifest.displayName, value: plugin.id)
                 .contextMenu {
+                    Button("Edit plugin") {
+                        if let manifest = try? store.findPlugin(by: plugin.manifest.bundleIdentifier) {
+                            sheeContext.present(RemotePluginView(bundleId: plugin.manifest.bundleIdentifier, version: manifest.version.toString(), repository: manifest.repository))
+                        }
+                    }
                     Button("Delete plugin") {
                         delete(plugin: plugin)
                     }

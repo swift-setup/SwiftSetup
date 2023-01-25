@@ -61,7 +61,7 @@ class PluginManifest: Object, Identifiable, ProjectManifestProtocol {
         self.keywords = keywords
         self.readme = readme
         self.localPosition = localPosition
-        self._version = "\(version.major).\(version.minor).\(version.patch)"
+        self._version = version.toString()
         self.systemImageName = systemImageName
     }
 }

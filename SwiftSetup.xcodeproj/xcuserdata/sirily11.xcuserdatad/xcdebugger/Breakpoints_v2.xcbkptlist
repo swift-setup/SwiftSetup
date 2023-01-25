@@ -3,4 +3,69 @@
    uuid = "EE3A46FB-73C7-46CA-9DBA-8AE4C62EBDC1"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7CEED32-AA56-4898-92F6-9694597B3BFA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftSetup/Views/RemotePluginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "submit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B7CEED32-AA56-4898-92F6-9694597B3BFA - 76365c881224f63c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for SwiftSetup.RemotePluginView.submit() async throws -&gt; ()"
+                  moduleName = "SwiftSetup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sirily11/Desktop/swift-setup/SwiftSetup/SwiftSetup/Views/RemotePluginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "624">
+               </Location>
+               <Location
+                  uuid = "B7CEED32-AA56-4898-92F6-9694597B3BFA - d802412093b03e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for SwiftSetup.RemotePluginView.submit() async throws -&gt; ()"
+                  moduleName = "SwiftSetup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sirily11/Desktop/swift-setup/SwiftSetup/SwiftSetup/Views/RemotePluginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "B7CEED32-AA56-4898-92F6-9694597B3BFA - 1a711ce5a9d9ed3f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for SwiftSetup.RemotePluginView.submit() async throws -&gt; ()"
+                  moduleName = "SwiftSetup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sirily11/Desktop/swift-setup/SwiftSetup/SwiftSetup/Views/RemotePluginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "216">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

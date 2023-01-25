@@ -6,20 +6,20 @@
 //
 
 import Foundation
-import RealmSwift
-import PluginInterface
 import PluginEngine
+import PluginInterface
+import RealmSwift
 
 enum PluginStoreError: LocalizedError {
     case duplicatePlugin(String)
     case notFound(String)
-    
+
     var errorDescription: String? {
         switch self {
-            case .duplicatePlugin(let bundleId):
-                return "Duplicated plugin found: \(bundleId)"
-            case .notFound(let bundleId):
-                return "Unable to find plugin: \(bundleId)"
+        case let .duplicatePlugin(bundleId):
+            return "Duplicated plugin found: \(bundleId)"
+        case let .notFound(bundleId):
+            return "Unable to find plugin: \(bundleId)"
         }
     }
 }
@@ -60,7 +60,7 @@ class PluginStore: ObservableObject {
         let plugins = realm.objects(PluginManifest.self)
         return Array(plugins)
     }
-    
+
     /**
      * This method is used to add a new plugin to the database.
      *
@@ -80,22 +80,46 @@ class PluginStore: ObservableObject {
         if let prevPlugin = realm.objects(PluginManifest.self).filter({ $0.bundleIdentifier == plugin.manifest.bundleIdentifier }).first {
             throw PluginStoreError.duplicatePlugin(prevPlugin.bundleIdentifier)
         }
-        
+
         let manifest = plugin.manifest
         let pluginManifest = PluginManifest(bundleIdentifier: manifest.bundleIdentifier, displayName: manifest.displayName, author: manifest.author, shortDescription: manifest.shortDescription, repository: manifest.repository, keywords: manifest.keywords, readme: repo.readme, localPosition: repo.localPosition, version: repo.version)
         try realm.write {
             realm.add(pluginManifest)
         }
     }
-    
-    
+
+    func updatePlugin(plugin: any PluginInterfaceProtocol, repo: PluginRepo) throws {
+        guard let prevPlugin = realm.objects(PluginManifest.self).filter({ $0.bundleIdentifier == plugin.manifest.bundleIdentifier }).first else {
+            throw PluginStoreError.notFound(plugin.manifest.bundleIdentifier)
+        }
+
+        let manifest = plugin.manifest
+        try realm.write {
+            prevPlugin._version = repo.version.toString()
+            prevPlugin.readme = repo.readme
+            prevPlugin.localPosition = repo.localPosition
+            prevPlugin.displayName = manifest.displayName
+            prevPlugin.author = manifest.author
+            prevPlugin.shortDescription = manifest.shortDescription
+            prevPlugin.repository = manifest.repository
+            prevPlugin.keywords = manifest.keywords
+        }
+    }
+
     func deletePlugin(by bundleId: String) throws {
         guard let prevPlugin = realm.objects(PluginManifest.self).filter({ $0.bundleIdentifier == bundleId }).first else {
             throw PluginStoreError.notFound(bundleId)
         }
-        
+
         try realm.write {
             realm.delete(prevPlugin)
         }
+    }
+
+    func findPlugin(by bundleId: String) throws -> PluginManifest {
+        guard let plugin = realm.objects(PluginManifest.self).filter({ $0.bundleIdentifier == bundleId }).first else {
+            throw PluginStoreError.notFound(bundleId)
+        }
+        return plugin
     }
 }

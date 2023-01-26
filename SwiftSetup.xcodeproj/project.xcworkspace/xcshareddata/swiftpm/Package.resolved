@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swift-setup/PluginEngine",
       "state" : {
-        "revision" : "7598c343f13e7391ecd01fd923d3c72d7a89df68",
-        "version" : "1.4.0"
+        "revision" : "f5d93054619f00325ed97fb7aa358a5146d83ef3",
+        "version" : "1.4.1"
       }
     },
     {

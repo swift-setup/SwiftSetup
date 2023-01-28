@@ -1,11 +1,9 @@
 default_platform(:mac)
 
-profile_name =  "mac-application"
 app_id = "com.sirily11.SwiftSetup"
 team_id = ENV["APPLE_TEAM_ID"]
 username = ENV["APPLE_ID"]
 password = ENV["APPLE_ID_PWD"]
-codesign = ENV["CODESIGN_SIGN"]
 
 
 platform :mac do
@@ -16,13 +14,8 @@ platform :mac do
       clean: true,
       output_name: "SwiftSetup",
       export_xcargs: "-skipPackagePluginValidation",
-      export_method: "mac-application",
+      export_method: "developer-id",
       export_team_id: team_id,
-      export_options: {
-        provisioningProfiles: { 
-          app_id => codesign,
-        }
-      }
     )
   end
 end

@@ -17,6 +17,7 @@
 		CD7BA142297EE7230010F2CD /* RemotePluginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA141297EE7230010F2CD /* RemotePluginView.swift */; };
 		CDBA157F297E5BD1007A782C /* PluginMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA157E297E5BD1007A782C /* PluginMenu.swift */; };
 		CDC60AD929818772008E60ED /* VersionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC60AD829818772008E60ED /* VersionPicker.swift */; };
+		CDD0FE212985A5EC00B634E2 /* PluginRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0FE202985A5EC00B634E2 /* PluginRow.swift */; };
 		CDE30545297DB4C300350CBB /* SwiftSetupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE30544297DB4C300350CBB /* SwiftSetupApp.swift */; };
 		CDE30547297DB4C300350CBB /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE30546297DB4C300350CBB /* HomePage.swift */; };
 		CDE30549297DB4C400350CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE30548297DB4C400350CBB /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		CD7BA143297F9C450010F2CD /* SwiftSetupRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftSetupRelease.entitlements; sourceTree = "<group>"; };
 		CDBA157E297E5BD1007A782C /* PluginMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginMenu.swift; sourceTree = "<group>"; };
 		CDC60AD829818772008E60ED /* VersionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionPicker.swift; sourceTree = "<group>"; };
+		CDD0FE202985A5EC00B634E2 /* PluginRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginRow.swift; sourceTree = "<group>"; };
 		CDE30541297DB4C300350CBB /* SwiftSetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE30544297DB4C300350CBB /* SwiftSetupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSetupApp.swift; sourceTree = "<group>"; };
 		CDE30546297DB4C300350CBB /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				CD7BA137297EB9CD0010F2CD /* PopoverProgressView.swift */,
 				CD7BA141297EE7230010F2CD /* RemotePluginView.swift */,
 				CDC60AD829818772008E60ED /* VersionPicker.swift */,
+				CDD0FE202985A5EC00B634E2 /* PluginRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				CDE30545297DB4C300350CBB /* SwiftSetupApp.swift in Sources */,
 				CDBA157F297E5BD1007A782C /* PluginMenu.swift in Sources */,
 				CDC60AD929818772008E60ED /* VersionPicker.swift in Sources */,
+				CDD0FE212985A5EC00B634E2 /* PluginRow.swift in Sources */,
 				CD7BA136297EB6D80010F2CD /* PopoverView.swift in Sources */,
 				CD7BA133297EB4F60010F2CD /* UIViewModel.swift in Sources */,
 				CD7BA131297EB1B00010F2CD /* PluginStore.swift in Sources */,

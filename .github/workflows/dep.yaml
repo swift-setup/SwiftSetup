@@ -7,23 +7,19 @@ on:
 jobs:
   update-dep:
     name: Update dependencies
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Update swift package dependencies
-        run: swift package update
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
+        uses: GetSidetrack/action-xcodeproj-spm-update@main
         with:
-          author_name: github action
-          author_email: action@github.com
-          new_branch: dep-update
-          message: "fix: Update dependencies"
-          add: .
-          push: true
-      - name: Create pull request
-        uses: devops-infra/action-pull-request@v0.5.3
+          forceResolution: true
+          failWhenOutdated: false
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4.2.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "fix: Update dependencies"
           title: "fix: Update dependencies"
+          body: "Update dependencies"
+          base: "main"

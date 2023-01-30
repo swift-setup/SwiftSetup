@@ -23,3 +23,4 @@ jobs:
           title: "fix: Update dependencies"
           body: "Update dependencies"
           base: "main"
+          token: ${{secrets.RELEASE_TOKEN}}

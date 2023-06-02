@@ -15,6 +15,7 @@
 		CD7BA13D297EDF860010F2CD /* PluginDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA13C297EDF860010F2CD /* PluginDetailView.swift */; };
 		CD7BA140297EE12E0010F2CD /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = CD7BA13F297EE12E0010F2CD /* MarkdownUI */; };
 		CD7BA142297EE7230010F2CD /* RemotePluginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BA141297EE7230010F2CD /* RemotePluginView.swift */; };
+		CDA567BA2A29958300B86530 /* SourceRadioButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA567B92A29958300B86530 /* SourceRadioButtons.swift */; };
 		CDBA157F297E5BD1007A782C /* PluginMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBA157E297E5BD1007A782C /* PluginMenu.swift */; };
 		CDC60AD929818772008E60ED /* VersionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC60AD829818772008E60ED /* VersionPicker.swift */; };
 		CDD0FE212985A5EC00B634E2 /* PluginRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD0FE202985A5EC00B634E2 /* PluginRow.swift */; };
@@ -39,6 +40,7 @@
 		CD7BA13C297EDF860010F2CD /* PluginDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginDetailView.swift; sourceTree = "<group>"; };
 		CD7BA141297EE7230010F2CD /* RemotePluginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePluginView.swift; sourceTree = "<group>"; };
 		CD7BA143297F9C450010F2CD /* SwiftSetupRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftSetupRelease.entitlements; sourceTree = "<group>"; };
+		CDA567B92A29958300B86530 /* SourceRadioButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceRadioButtons.swift; sourceTree = "<group>"; };
 		CDBA157E297E5BD1007A782C /* PluginMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginMenu.swift; sourceTree = "<group>"; };
 		CDC60AD829818772008E60ED /* VersionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionPicker.swift; sourceTree = "<group>"; };
 		CDD0FE202985A5EC00B634E2 /* PluginRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginRow.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				CD7BA141297EE7230010F2CD /* RemotePluginView.swift */,
 				CDC60AD829818772008E60ED /* VersionPicker.swift */,
 				CDD0FE202985A5EC00B634E2 /* PluginRow.swift */,
+				CDA567B92A29958300B86530 /* SourceRadioButtons.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				CD7BA138297EB9CD0010F2CD /* PopoverProgressView.swift in Sources */,
 				CD7BA142297EE7230010F2CD /* RemotePluginView.swift in Sources */,
+				CDA567BA2A29958300B86530 /* SourceRadioButtons.swift in Sources */,
 				CDE3055B297E40A300350CBB /* PluginManifest.swift in Sources */,
 				CDE30563297E547900350CBB /* PluginList.swift in Sources */,
 				CDE3055E297E52FD00350CBB /* OpenLocalPluginMenu.swift in Sources */,
